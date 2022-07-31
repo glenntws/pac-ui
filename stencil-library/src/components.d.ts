@@ -6,56 +6,54 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface PacButton {
+        "color": "slate" | "gray" | "zinc" |
+          "neutral" | "stone" | "red" |
+          "orange"| "amber" | "yellow" |
+          "lime" | "green" | "emerald" |
+          "teal" | "cyan" | "sky" |
+          "blue" | "indigo" | "violet" |
+          "purple" | "fuchsia" | "pink" | "rose";
+        "enabled": boolean;
+        "look": "solid" | "inset";
+        "size": "small" | "normal" | "large";
+        "text": string;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLPacButtonElement extends Components.PacButton, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLPacButtonElement: {
+        prototype: HTMLPacButtonElement;
+        new (): HTMLPacButtonElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "pac-button": HTMLPacButtonElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface PacButton {
+        "color"?: "slate" | "gray" | "zinc" |
+          "neutral" | "stone" | "red" |
+          "orange"| "amber" | "yellow" |
+          "lime" | "green" | "emerald" |
+          "teal" | "cyan" | "sky" |
+          "blue" | "indigo" | "violet" |
+          "purple" | "fuchsia" | "pink" | "rose";
+        "enabled"?: boolean;
+        "look"?: "solid" | "inset";
+        "size"?: "small" | "normal" | "large";
+        "text"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "pac-button": PacButton;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "pac-button": LocalJSX.PacButton & JSXBase.HTMLAttributes<HTMLPacButtonElement>;
         }
     }
 }

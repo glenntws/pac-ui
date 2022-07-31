@@ -3,9 +3,9 @@
 /* auto-generated react proxies */
 import { createReactComponent } from './react-component-lib';
 
-import type { JSX } from 'pacment-stencil-lib';
+import type { JSX } from 'pacment-components';
 
-import { defineCustomElements } from 'pacment-stencil-lib/loader';
+import { defineCustomElements } from 'pacment-components/loader';
 
 defineCustomElements();
-export const MyComponent = /*@__PURE__*/createReactComponent<JSX.MyComponent, HTMLMyComponentElement>('my-component');
+export const PacButton = /*@__PURE__*/createReactComponent<JSX.PacButton, HTMLPacButtonElement>('pac-button');
