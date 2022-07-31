@@ -1,33 +1,13 @@
 import { Config } from '@stencil/core';
 import { reactOutputTarget as react } from '@stencil/react-output-target';
-import { postcss } from '@stencil/postcss';
-import tailwindcss from 'tailwindcss';
-import autoprefixer from 'autoprefixer';
-import purgecss from '@fullhuman/postcss-purgecss';
-import cssnano from 'cssnano';
+import { sass } from '@stencil/sass';
 
 export const config: Config = {
   plugins: [
-    postcss({
-      plugins: [
-          tailwindcss({
-            content: ['./src/**/*.{ts,tsx,html}'],
-            theme: {
-              extend: {},
-            },
-            plugins: []
-          }),
-          autoprefixer,
-          purgecss({
-            content: ["./src/**/*.tsx", "./src/**/*.css", "./src/index.html"],
-            defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
-          }),
-          cssnano()
-      ],
-      alwaysParseNonCachedCss: true
+    sass({
     })
   ],
-  globalStyle: "src/global/global.css",
+  globalStyle: "src/global/global.scss",
   devServer: {
     reloadStrategy: 'pageReload'
   },

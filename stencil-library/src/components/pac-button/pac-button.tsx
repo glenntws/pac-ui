@@ -1,5 +1,6 @@
 import { Component, Host, h, Prop } from '@stencil/core';
 
+/*
 const solidColors = {
   "slate": "text-white bg-slate-500 hover:bg-slate-400 active:bg-slate-600",
   "gray": "text-white bg-gray-500 hover:bg-gray-400 active:bg-gray-600",
@@ -49,10 +50,11 @@ const insetColors = {
   "pink": "text-white bg-pink-500 hover:bg-pink-400 active:bg-pink-600",
   "rose": "text-white bg-rose-500 hover:bg-rose-400 active:bg-rose-600"
 };
+*/
 
 @Component({
   tag: 'pac-button',
-  styleUrl: 'pac-button.css',
+  styleUrl: 'pac-button.scss',
   shadow: true,
 })
 export class PacButton {
@@ -61,16 +63,16 @@ export class PacButton {
   text: string = "Button";
 
   @Prop()
-  color: "slate" | "gray" | "zinc" |
-          "neutral" | "stone" | "red" |
-          "orange"| "amber" | "yellow" |
-          "lime" | "green" | "emerald" |
+  color: "slate" | "gray" |
+          "neutral" | "red" |
+          "orange" | "yellow" |
+          "green" | "emerald" |
           "teal" | "cyan" | "sky" |
           "blue" | "indigo" | "violet" |
           "purple" | "fuchsia" | "pink" | "rose" = "blue";
 
   @Prop()
-  look: "solid" | "inset" = "solid";
+  look: "solid" | "glass" = "solid";
 
   @Prop()
   size: "small" | "normal" | "large" = "normal";
@@ -79,35 +81,13 @@ export class PacButton {
   enabled: boolean = true;
 
   render() {
-    if(this.look === "solid"){
-      return (
-        <Host>
-          <button class={" font-semibold rounded-md " +
-                          (this.size == "normal" ? " px-3 py-1 text-base " : "") +
-                          (this.size == "small" ? " px-2 py-1 text-sm " : "") +
-                          (this.size == "large" ? " px-4 py-2 text-lg " : "") +
-                          " transition-all duration-200 " + 
-                          (this.enabled ? " shadow-lg hover:shadow-xl active:shadow-md " : " opacity-75 ") +
-                          (this.enabled ? solidColors[this.color] : " bg-gray-200 text-gray-400 pointer-events-none ")}>
-            {this.text}
-          </button>
-        </Host>
-      );
-    } else {
-      return (
-        <Host>
-          <button class={" font-semibold rounded-md " +
-                          (this.size == "normal" ? " px-3 py-1 text-base " : "") +
-                          (this.size == "small" ? " px-2 py-1 text-sm " : "") +
-                          (this.size == "large" ? " px-4 py-2 text-lg " : "") +
-                          " transition-all duration-200 " + 
-                          (this.enabled ? " shadow-inner text-blue-500 border-2  border-gray-800 active:text-white " : " opacity-75 ") +
-                          (this.enabled ? insetColors[this.color] : " bg-gray-300 text-white pointer-events-none ")}>
-            {this.text}
-          </button>
-        </Host>
-      );
-    }
+    return (
+      <Host>
+        <button class={"size-" + this.size + " " + (!this.enabled ? " disabled " : "") + " color-" + this.color + " look-" + this.look}> 
+          {this.text}
+        </button>
+      </Host>
+    );
   }
 
 }

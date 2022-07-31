@@ -8,17 +8,16 @@ export default {
         },
         color: {
             control: "select",
-            options: ["slate" , "gray" , "zinc" ,
-                        "neutral" , "stone" , "red" ,
-                        "orange", "amber" , "yellow" ,
-                        "lime" , "green" , "emerald" ,
+            options: ["slate" , "gray" ,
+                        "neutral" , "red" ,
+                        "orange", "yellow" , "green" , "emerald" ,
                         "teal" , "cyan" , "sky" ,
                         "blue" , "indigo" , "violet" ,
                         "purple" , "fuchsia" , "pink" , "rose"]
         },
         look: {
             control: "radio",
-            options: ["solid", "inset"]
+            options: ["solid", "glass"]
         },
         size: {
             control: "radio",

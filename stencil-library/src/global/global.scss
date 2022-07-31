@@ -1,4 +1,5 @@
 :root {
+    // Colors
     --color-white: 255, 255, 255;
     --color-black: 0, 0, 0;
 
@@ -199,4 +200,8 @@
     --color-rose-700: 190, 18, 60;
     --color-rose-800: 159, 18, 57;
     --color-rose-900: 136, 19, 55;
+
+    // Font configuration
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
 }

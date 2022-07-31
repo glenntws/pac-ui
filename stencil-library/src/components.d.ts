@@ -7,15 +7,15 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface PacButton {
-        "color": "slate" | "gray" | "zinc" |
-          "neutral" | "stone" | "red" |
-          "orange"| "amber" | "yellow" |
-          "lime" | "green" | "emerald" |
+        "color": "slate" | "gray" |
+          "neutral" | "red" |
+          "orange" | "yellow" |
+          "green" | "emerald" |
           "teal" | "cyan" | "sky" |
           "blue" | "indigo" | "violet" |
           "purple" | "fuchsia" | "pink" | "rose";
         "enabled": boolean;
-        "look": "solid" | "inset";
+        "look": "solid" | "glass";
         "size": "small" | "normal" | "large";
         "text": string;
     }
@@ -33,15 +33,15 @@ declare global {
 }
 declare namespace LocalJSX {
     interface PacButton {
-        "color"?: "slate" | "gray" | "zinc" |
-          "neutral" | "stone" | "red" |
-          "orange"| "amber" | "yellow" |
-          "lime" | "green" | "emerald" |
+        "color"?: "slate" | "gray" |
+          "neutral" | "red" |
+          "orange" | "yellow" |
+          "green" | "emerald" |
           "teal" | "cyan" | "sky" |
           "blue" | "indigo" | "violet" |
           "purple" | "fuchsia" | "pink" | "rose";
         "enabled"?: boolean;
-        "look"?: "solid" | "inset";
+        "look"?: "solid" | "glass";
         "size"?: "small" | "normal" | "large";
         "text"?: string;
     }
