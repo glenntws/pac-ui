@@ -29,7 +29,7 @@ export default {
     }
 };
 
-const Template = (args) => `<pac-button text="${args.text}" color="${args.color}" look="${args.look}" size="${args.size}" enabled="${args.enabled}"></pac-button>`;
+const Template = (args) => `<pac-button color="${args.color}" look="${args.look}" size="${args.size}" enabled="${args.enabled}">${args.text}</pac-button>`;
 
 export const Solid = Template.bind({});
 Solid.args = {

@@ -1,0 +1,60 @@
+@import url(../../global/color-classes.scss);
+
+:host {
+  display: block;
+  width: 1.75rem;
+  align-self: center;
+  margin: 0.25rem;
+  box-sizing: border-box;
+}
+
+div {
+  content: "";
+  transition: all 200ms ease-out;
+  width: 100%;
+  margin: 0rem;
+  padding-bottom: 100%;
+  border-radius:50%;
+  backdrop-filter: blur(20px);
+  box-sizing: border-box;
+  background-image: linear-gradient(to top, rgb(var(--color-900),0.3), rgb(var(--color-700),0.3));
+  box-shadow: 0px 0px 3px 0px rgb(var(--color-black), 0.1), inset 0px 0px 1px rgb(var(--color-900), 0.3);
+}
+
+div::after {
+  content: "";
+  transition: all 200ms ease-out;
+  position: absolute;
+  border-radius: 50%;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-image: linear-gradient(to top, rgb(var(--color-500)), rgb(var(--color-300)));
+  box-shadow: 0px 1px 10px -1px rgb(var(--color-400), 0.8);
+  opacity: 0;
+}
+
+div.mode-on::after {
+  opacity: 1;
+}
+
+div.mode-blinking::after {
+  animation-name: blinking;
+  animation-duration: 800ms;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  transtion: all 1s ease-in-out;
+}
+
+
+@keyframes blinking {
+  0% {
+    opacity: 0;
+  }
+  
+  50% {
+    opacity: 1;
+  }
+  
+}

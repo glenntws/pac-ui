@@ -1,83 +1,100 @@
-@import url(../../global/variables.scss);
+@import url(../../global/color-classes.scss);
 
 :host {
-  display: block;
-}
-
-button {
-  font-weight: 600;
-  letter-spacing: 0.025rem;
+  display: flex;
   border-radius: 0.375rem;
-  transition: all 200ms ease-out;
+  transition: all 150ms ease-out;
   box-sizing: border-box;
+  font-family: var(--sans-font);
+  width: fit-content;
+  cursor: pointer;
+  user-select: none;
+  // vertical-align: middle;
 }
 
-.disabled {
+:host(.disabled) {
   pointer-events: none;
 }
 
-.look-solid {
+:host(:hover) {
+  transition: all 400ms ease-out;
+}
+
+:host(:active) {
+  transition: all 150ms ease-out;
+}
+
+:host(.look-solid) {
+  font-weight: 500;
   color: rgb(var(--color-white));
   background-color: rgb(var(--color-500));
   border: none;
   box-shadow: 0px 4px 6px -1px rgb(var(--color-black), 0.1), 0px 1px 4px -2px rgb(var(--color-black), 0.1);
 }
 
-.look-solid:hover {
-  background-color: rgb(var(--color-400));
+:host(.look-solid:hover) {
   box-shadow: 0px 6px 15px -3px rgb(var(--color-black), 0.1), 0px 4px 6px -4px rgb(var(--color-black), 0.1);
+  background-color: rgb(var(--color-400));
+  text-shadow: 0px 0px 4px rgb(var(--color-800), 0.2);
 }
 
-.look-solid:active {
+:host(.look-solid:active) {
   background-color: rgb(var(--color-600));
-  box-shadow: 0px 1px 3px 0 rgb(var(--color-black), 0.15);
+  box-shadow: 0px 1px 2px 0px rgb(var(--color-black), 0.2), 0px 0px 10px 0px rgb(var(--color-500), 0.3), inset 0px 1px 2px -1px rgb(var(--color-black), 0.1);
 }
 
-.look-solid.disabled {
+:host(.look-solid.disabled) {
   color: rgb(var(--color-gray-500));
   background-color: rgb(var(--color-gray-300),0.5);
   box-shadow: unset;
 }
 
-.look-glass {
+:host(.look-glass) {
+  font-weight: 400;
   color: rgb(var(--color-white));
-  background-color: rgb(var(--color-black),0.5);
+  background-color: rgb(var(--color-gray-600),0.5);
   backdrop-filter: blur(15px);
   border: none;
   box-shadow: 0px 1px 3px -1px rgb(var(--color-black), 0.1);
 }
 
-.look-glass:hover {
-  background-color: rgb(var(--color-gray-800),0.5);
-  box-shadow: 0px 1px 2px -1px rgb(var(--color-black), 0.1), 0px 0px 14px -1px rgb(var(--color-500), 0.2);
+:host(.look-glass:hover) {
+  background-color: rgb(var(--color-gray-500),0.5);
+  box-shadow: 0px 1px 2px -1px rgb(var(--color-black), 0.1), 0px 0px 14px -1px rgb(var(--color-black), 0.1);
 }
 
-.look-glass:active {
-  color: rgb(var(--color-white));
-  background-color: rgb(var(--color-600), 1);
-  box-shadow: 0px 1px 2px 0px rgb(var(--color-black), 0.2), 0px 0px 10px 0px rgb(var(--color-500), 0.3), inset 0px 1px 2px -1px rgb(var(--color-black), 0.15);
+:host(.look-glass:active) {
+  color: rgb(var(--color-gray-600));
+  background-color: rgb(var(--color-gray-50), 1);
+  box-shadow: 0px 1px 6px 0px rgb(var(--color-black), 0.1), inset 0px 1px 2px -1px rgb(var(--color-black), 0.15);
 }
 
-.look-glass.disabled {
-  color: rgb(var(--color-gray-600), 0.6);
-  background-color: rgb(var(--color-gray-500),0.2);
+:host(.look-glass.disabled) {
+  color: rgb(var(--color-gray-500));
+  background-color: rgb(var(--color-gray-300),0.5);
   box-shadow: unset;
 }
 
-.size-small {
+:host(.size-small) {
   padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+:host(.size-normal) {
+  padding: 0.5rem 1rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
-.size-normal {
-  padding: 0.25rem 0.75rem;
+:host(.size-large) {
+  padding: 0.75rem 1.5rem;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
-.size-large {
-  padding: 0.5rem 1rem;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+span {
+  margin: 0px;
+  padding: 0px;
+  align-self: center;
 }

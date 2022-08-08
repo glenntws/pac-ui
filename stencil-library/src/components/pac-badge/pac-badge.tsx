@@ -1,11 +1,11 @@
 import { Component, Host, h, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'pac-button',
-  styleUrl: 'pac-button.scss',
+  tag: 'pac-badge',
+  styleUrl: 'pac-badge.scss',
   shadow: true,
 })
-export class PacButton {
+export class PacBadge {
 
   @Prop()
   color: "slate" | "gray" |
@@ -17,18 +17,15 @@ export class PacButton {
           "purple" | "fuchsia" | "pink" | "rose" = "blue";
 
   @Prop()
-  look: "solid" | "glass" = "solid";
+  effect: "none" | "fast-glow" | "slow-glow" = "none";
 
   @Prop()
-  size: "small" | "normal" | "large" = "normal";
-
-  @Prop()
-  enabled: Boolean = true;
+  text: string = "";
 
   render() {
     return (
-      <Host class={"size-" + this.size + " " + (!this.enabled ? " disabled " : "") + " color-" + this.color + " look-" + this.look}>
-        <span><slot></slot></span>
+      <Host class={"color-" + this.color + " effect-" + this.effect}>
+        {this.text}
       </Host>
     );
   }

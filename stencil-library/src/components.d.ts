@@ -5,7 +5,19 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ChangeEventInfo } from "./components/pac-searchbar/pac-searchbar";
 export namespace Components {
+    interface PacBadge {
+        "color": "slate" | "gray" |
+          "neutral" | "red" |
+          "orange" | "yellow" |
+          "green" | "emerald" |
+          "teal" | "cyan" | "sky" |
+          "blue" | "indigo" | "violet" |
+          "purple" | "fuchsia" | "pink" | "rose";
+        "effect": "none" | "fast-glow" | "slow-glow";
+        "text": string;
+    }
     interface PacButton {
         "color": "slate" | "gray" |
           "neutral" | "red" |
@@ -14,24 +26,102 @@ export namespace Components {
           "teal" | "cyan" | "sky" |
           "blue" | "indigo" | "violet" |
           "purple" | "fuchsia" | "pink" | "rose";
-        "enabled": boolean;
+        "enabled": Boolean;
         "look": "solid" | "glass";
         "size": "small" | "normal" | "large";
-        "text": string;
+    }
+    interface PacInput {
+    }
+    interface PacOption {
+    }
+    interface PacSearchbar {
+        "autocompleteMode": AutocompleteMode;
+        "cancelButtonColor": Color;
+        "cancelButtonText": string;
+        "enableAutocorrect": Boolean;
+        "enableSpellcheck": Boolean;
+        "enabled": Boolean;
+        "inputDebounce": Number;
+        "inputMode": typeof HTMLInputElement.prototype.inputMode;
+        "inputType": typeof HTMLInputElement.prototype.type;
+        "placeholder": string;
+        "searchIconColor": Color;
+        "showCancelButton": "never" | "focus" | "always";
+        "showClearButton": "never" | "input" | "always";
+        "value": string;
+    }
+    interface PacStatus {
+        "color": Color;
+        "mode": "off" | "on" | "blinking";
+    }
+    interface PacToggle {
     }
 }
 declare global {
+    interface HTMLPacBadgeElement extends Components.PacBadge, HTMLStencilElement {
+    }
+    var HTMLPacBadgeElement: {
+        prototype: HTMLPacBadgeElement;
+        new (): HTMLPacBadgeElement;
+    };
     interface HTMLPacButtonElement extends Components.PacButton, HTMLStencilElement {
     }
     var HTMLPacButtonElement: {
         prototype: HTMLPacButtonElement;
         new (): HTMLPacButtonElement;
     };
+    interface HTMLPacInputElement extends Components.PacInput, HTMLStencilElement {
+    }
+    var HTMLPacInputElement: {
+        prototype: HTMLPacInputElement;
+        new (): HTMLPacInputElement;
+    };
+    interface HTMLPacOptionElement extends Components.PacOption, HTMLStencilElement {
+    }
+    var HTMLPacOptionElement: {
+        prototype: HTMLPacOptionElement;
+        new (): HTMLPacOptionElement;
+    };
+    interface HTMLPacSearchbarElement extends Components.PacSearchbar, HTMLStencilElement {
+    }
+    var HTMLPacSearchbarElement: {
+        prototype: HTMLPacSearchbarElement;
+        new (): HTMLPacSearchbarElement;
+    };
+    interface HTMLPacStatusElement extends Components.PacStatus, HTMLStencilElement {
+    }
+    var HTMLPacStatusElement: {
+        prototype: HTMLPacStatusElement;
+        new (): HTMLPacStatusElement;
+    };
+    interface HTMLPacToggleElement extends Components.PacToggle, HTMLStencilElement {
+    }
+    var HTMLPacToggleElement: {
+        prototype: HTMLPacToggleElement;
+        new (): HTMLPacToggleElement;
+    };
     interface HTMLElementTagNameMap {
+        "pac-badge": HTMLPacBadgeElement;
         "pac-button": HTMLPacButtonElement;
+        "pac-input": HTMLPacInputElement;
+        "pac-option": HTMLPacOptionElement;
+        "pac-searchbar": HTMLPacSearchbarElement;
+        "pac-status": HTMLPacStatusElement;
+        "pac-toggle": HTMLPacToggleElement;
     }
 }
 declare namespace LocalJSX {
+    interface PacBadge {
+        "color"?: "slate" | "gray" |
+          "neutral" | "red" |
+          "orange" | "yellow" |
+          "green" | "emerald" |
+          "teal" | "cyan" | "sky" |
+          "blue" | "indigo" | "violet" |
+          "purple" | "fuchsia" | "pink" | "rose";
+        "effect"?: "none" | "fast-glow" | "slow-glow";
+        "text"?: string;
+    }
     interface PacButton {
         "color"?: "slate" | "gray" |
           "neutral" | "red" |
@@ -40,20 +130,63 @@ declare namespace LocalJSX {
           "teal" | "cyan" | "sky" |
           "blue" | "indigo" | "violet" |
           "purple" | "fuchsia" | "pink" | "rose";
-        "enabled"?: boolean;
+        "enabled"?: Boolean;
         "look"?: "solid" | "glass";
         "size"?: "small" | "normal" | "large";
-        "text"?: string;
+    }
+    interface PacInput {
+    }
+    interface PacOption {
+    }
+    interface PacSearchbar {
+        "autocompleteMode"?: AutocompleteMode;
+        "cancelButtonColor"?: Color;
+        "cancelButtonText"?: string;
+        "enableAutocorrect"?: Boolean;
+        "enableSpellcheck"?: Boolean;
+        "enabled"?: Boolean;
+        "inputDebounce"?: Number;
+        "inputMode"?: typeof HTMLInputElement.prototype.inputMode;
+        "inputType"?: typeof HTMLInputElement.prototype.type;
+        "onPacBlur"?: (event: CustomEvent<void>) => void;
+        "onPacCancel"?: (event: CustomEvent<void>) => void;
+        "onPacChange"?: (event: CustomEvent<ChangeEventInfo>) => void;
+        "onPacClear"?: (event: CustomEvent<void>) => void;
+        "onPacFocus"?: (event: CustomEvent<void>) => void;
+        "onPacInput"?: (event: CustomEvent<KeyboardEvent>) => void;
+        "placeholder"?: string;
+        "searchIconColor"?: Color;
+        "showCancelButton"?: "never" | "focus" | "always";
+        "showClearButton"?: "never" | "input" | "always";
+        "value"?: string;
+    }
+    interface PacStatus {
+        "color"?: Color;
+        "mode"?: "off" | "on" | "blinking";
+    }
+    interface PacToggle {
     }
     interface IntrinsicElements {
+        "pac-badge": PacBadge;
         "pac-button": PacButton;
+        "pac-input": PacInput;
+        "pac-option": PacOption;
+        "pac-searchbar": PacSearchbar;
+        "pac-status": PacStatus;
+        "pac-toggle": PacToggle;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "pac-badge": LocalJSX.PacBadge & JSXBase.HTMLAttributes<HTMLPacBadgeElement>;
             "pac-button": LocalJSX.PacButton & JSXBase.HTMLAttributes<HTMLPacButtonElement>;
+            "pac-input": LocalJSX.PacInput & JSXBase.HTMLAttributes<HTMLPacInputElement>;
+            "pac-option": LocalJSX.PacOption & JSXBase.HTMLAttributes<HTMLPacOptionElement>;
+            "pac-searchbar": LocalJSX.PacSearchbar & JSXBase.HTMLAttributes<HTMLPacSearchbarElement>;
+            "pac-status": LocalJSX.PacStatus & JSXBase.HTMLAttributes<HTMLPacStatusElement>;
+            "pac-toggle": LocalJSX.PacToggle & JSXBase.HTMLAttributes<HTMLPacToggleElement>;
         }
     }
 }

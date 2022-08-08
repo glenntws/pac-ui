@@ -1,0 +1,116 @@
+@import url(../../global/color-classes.scss);
+
+:host {
+ display:block;
+}
+
+:host {
+  display: flex;
+  margin: 0.5rem;
+  padding: 0px;
+  border-radius: 0.375rem;
+  box-shadow: 0px 4px 6px -1px rgb(var(--color-black), 0.1), 0px 1px 4px -2px rgb(var(--color-black), 0.1);
+  transition: all 100ms ease-out;
+  box-sizing: border-box;
+  font-family: var(--sans-font);
+  background-color: transparent;
+  overflow: hidden;
+  height: fit-content;
+  backdrop-filter: blur(20px);
+  white-space: nowrap;
+  background-color: rgb(var(--color-gray-300), 0.3);
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  width: fit-content;
+  max-width: calc(100% - 1rem);
+  box-sizing: border-box;
+}
+
+:host(.disabled) {
+  pointer-events: none;
+}
+
+#searchIcon {
+  display: block;
+  color: rgb(var(--color-500));
+  font-size: 1.5rem;
+  height: auto;
+  margin: 0.25rem;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+#cancelBtn {
+  margin: 0.25rem;
+  opacity: 0;
+  transform: translateX(100%);
+  position: absolute;
+  pointer-events: none;
+  transition: none;
+
+  &.show {
+    opacity: 1;
+    transform: translateX(0%);
+    position: relative;
+    pointer-events: auto;
+    transition: all 200ms ease-out;
+  }
+}
+
+#clearBtn {
+  border: none;
+  display: block;
+  width: fit-content;
+  opacity: 0;
+  pointer-events: none;
+  font-size: 1.25rem;
+  color: rgb(var(--color-gray-500));
+  height: auto;
+  background: transparent;
+  margin: 0rem 0.25rem;
+
+  &.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  ion-icon {
+    height: 100%;
+  }
+}
+
+input {
+  display: block;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  padding: 0.125rem 0.25rem;
+  margin: 0.375rem 0.25rem;
+  border: none;
+  background: transparent;
+  flex-grow: 1;
+  outline: none;
+  min-width: 30px;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+
+  &:hover {
+    border: none;
+    outline: none;
+  }
+
+  &:active {
+    border: none;
+    outline: none;
+  }
+}
+
+input.text-centered {
+  text-align: center;
+}
+
