@@ -1,7 +1,7 @@
 {
-  "name": "pacment-stencil-lib",
+  "name": "pacUI",
   "version": "0.0.1",
-  "description": "Pacment stencil component library",
+  "description": "PacUI web component library",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -9,7 +9,7 @@
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/pacment-stencil-lib/pacment-stencil-lib.esm.js",
+  "unpkg": "dist/pacui/pacui.esm.js",
   "files": [
     "dist/",
     "loader/"

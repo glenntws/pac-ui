@@ -3,9 +3,9 @@
 /* auto-generated react proxies */
 import { createReactComponent } from './react-component-lib';
 
-import type { JSX } from 'pacment-components';
+import type { JSX } from 'pacui-components';
 
-import { defineCustomElements } from 'pacment-components/loader';
+import { defineCustomElements } from 'pacui-components/loader';
 
 defineCustomElements();
 export const IonIcon = /*@__PURE__*/createReactComponent<JSX.IonIcon, HTMLIonIconElement>('ion-icon');

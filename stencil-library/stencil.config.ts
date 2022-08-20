@@ -28,7 +28,7 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
     react({
-      componentCorePackage: 'pacment-components',
+      componentCorePackage: 'pacui-components',
       proxiesFile: '../react-library/src/components/stencil-generated/index.ts',
       includeDefineCustomElements: true,
     })
