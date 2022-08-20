@@ -1,15 +1,11 @@
 @import url(../../global/color-classes.scss);
 
 :host {
- display:block;
-}
-
-:host {
   display: flex;
   margin: 0.5rem;
   padding: 0px;
-  border-radius: 0.375rem;
-  box-shadow: 0px 4px 6px -1px rgb(var(--color-black), 0.1), 0px 1px 4px -2px rgb(var(--color-black), 0.1);
+  border-radius: 1000px;
+  box-shadow: inset 0 1px 4px -1px rgb(var(--color-black), 0.1);
   transition: all 100ms ease-out;
   box-sizing: border-box;
   font-family: var(--sans-font);
@@ -17,7 +13,6 @@
   overflow: hidden;
   height: fit-content;
   backdrop-filter: blur(20px);
-  white-space: nowrap;
   background-color: rgb(var(--color-gray-300), 0.3);
   flex-direction: row;
   flex-wrap: nowrap;
@@ -26,6 +21,7 @@
   width: fit-content;
   max-width: calc(100% - 1rem);
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 :host(.disabled) {
@@ -37,7 +33,7 @@
   color: rgb(var(--color-500));
   font-size: 1.5rem;
   height: auto;
-  margin: 0.25rem;
+  margin: 0.25rem 0.3rem 0.25rem 0.5rem;
   flex-shrink: 0;
   flex-grow: 0;
 }
@@ -49,6 +45,8 @@
   position: absolute;
   pointer-events: none;
   transition: none;
+
+  border-radius: 10000px;
 
   &.show {
     opacity: 1;
@@ -85,6 +83,8 @@ input {
   display: block;
   text-align: left;
   font-size: 1rem;
+  font-weight: 400;
+  font-family: var(--sans-font);
   line-height: 1.5rem;
   padding: 0.125rem 0.25rem;
   margin: 0.375rem 0.25rem;

@@ -1,29 +1,8 @@
 export default {
-    title: 'Searchbar',
-    component: 'pac-searchbar',
+    title: 'Input',
+    component: 'pac-input',
     argTypes:
     {
-        searchIconColor: {
-            control: "select",
-            options: ["slate" , "gray" ,
-                        "neutral" , "red" ,
-                        "orange", "yellow" , "green" , "emerald" ,
-                        "teal" , "cyan" , "sky" ,
-                        "blue" , "indigo" , "violet" ,
-                        "purple" , "fuchsia" , "pink" , "rose"]
-        },
-        cancelButtonColor: {
-            control: "select",
-            options: ["slate" , "gray" ,
-                        "neutral" , "red" ,
-                        "orange", "yellow" , "green" , "emerald" ,
-                        "teal" , "cyan" , "sky" ,
-                        "blue" , "indigo" , "violet" ,
-                        "purple" , "fuchsia" , "pink" , "rose"]
-        },
-        cancelButtonText: {
-            control: "text"
-        },
         placeholder: {
             control: "text"
         },
@@ -53,14 +32,6 @@ export default {
             control: "select",
             options: ["decimal", "email", "none", "numeric", "search", "tel", "text", "url"]
         },
-        showCancelButton: {
-            control: "select",
-            options: ["never", "focus", "always"]
-        },
-        showClearButton: {
-            control: "select",
-            options: ["never", "input", "always"]
-        },
         inputDebounce: {
             control: "text"
         },
@@ -73,37 +44,26 @@ export default {
     }
 };
 
-const Template = (args) => `<pac-searchbar
-                                search-icon-color="${args.searchIconColor}"
-                                cancel-button-color="${args.cancelButtonColor}"
-                                cancel-button-text="${args.cancelButtonText}"
+const Template = (args) => `<pac-input
                                 placeholder="${args.placeholder}"
                                 enable-autocorrect="${args.enableAutocorrect}"
                                 autocomplete-mode="${args.autocompleteMode}"
                                 enable-spellcheck="${args.enableSpellcheck}"
                                 input-type="${args.inputType}"
                                 input-mode="${args.inputMode}"
-                                show-cancel-button="${args.showCancelButton}"
-                                show-clear-button="${args.showClearButton}"
                                 input-debounce="${args.inputDebounce}"
                                 enabled="${args.enabled}"
-                                value="${args.value}"
-                                pac-input="() => {alert('Hello');}">
-                            </pac-searchbar>`;
+                                value="${args.value}">
+                            </pac-input>`;
 
 export const Solid = Template.bind({});
 Solid.args = {
-    searchIconColor:"blue",
-    cancelButtonColor:"rose",
-    cancelButtonText:"Cancel",
     placeholder:"Search...",
     enableAutocorrect:true,
     autocompleteMode:"text",
     enableSpellcheck:true,
     inputType:"text",
     inputMode:"text",
-    showCancelButton:"focus",
-    showClearButton:"input",
     inputDebounce:"200",
     enabled:true,
     value:""

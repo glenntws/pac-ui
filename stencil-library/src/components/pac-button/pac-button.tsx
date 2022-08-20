@@ -17,18 +17,21 @@ export class PacButton {
           "purple" | "fuchsia" | "pink" | "rose" = "blue";
 
   @Prop()
-  look: "solid" | "glass" = "solid";
+  look: "solid" | "glass" | "clear" = "solid";
 
   @Prop()
   size: "small" | "normal" | "large" = "normal";
 
   @Prop()
-  enabled: Boolean = true;
+  enabled: boolean = true;
 
   render() {
+    console.log
     return (
-      <Host class={"size-" + this.size + " " + (!this.enabled ? " disabled " : "") + " color-" + this.color + " look-" + this.look}>
+      <Host class={"size-" + this.size + " " + (this.enabled ? "" : " disabled ") + " color-" + this.color + " look-" + this.look}>
+        <slot name="start"></slot>
         <span><slot></slot></span>
+        <slot name="end"></slot>
       </Host>
     );
   }

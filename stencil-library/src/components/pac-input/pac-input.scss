@@ -1,0 +1,40 @@
+:host {
+  display: inline-block;
+  -webkit-tap-highlight-color: transparent;
+  font-family: var(--sans-font);
+  background-color: transparent;
+  width: fit-content;
+  max-width: calc(100% - 1rem);
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+
+input {
+  display: block;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: var(--sans-font);
+  line-height: 1.5rem;
+  margin: 0.25rem 0.25rem;
+  border: none;
+  background: transparent;
+  flex-grow: 1;
+  outline: none;
+  min-width: 30px;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+
+  &:hover {
+    border: none;
+    outline: none;
+  }
+
+  &:active {
+    border: none;
+    outline: none;
+  }
+}

@@ -1,5 +1,6 @@
 import { Component, Host, h, Prop, State, Event, EventEmitter, Watch } from '@stencil/core';
 import 'ionicons';
+import { debounceEvent } from '../../utils/utils';
 
 export interface ChangeEventInfo {
   value: string;
@@ -43,10 +44,15 @@ export class PacSearchbar {
   showCancelButton: "never" | "focus" | "always" = "focus";
 
   @Prop()
-  showClearButton: "never" | "input" | "always" = "input"
+  showClearButton: "never" | "input" | "always" = "input";
 
   @Prop()
-  inputDebounce: Number = 200;
+  inputDebounce: number = 200;
+
+  @Watch('inputDebounce')
+  protected debounceChanged() {
+    this.pacChange = debounceEvent(this.pacChange, this.inputDebounce);
+  }
 
   @Prop()
   enabled: Boolean = true;
@@ -153,6 +159,10 @@ export class PacSearchbar {
   private shouldShowClearButton(): Boolean {
     return (this.showClearButton === "always" || (this.showClearButton === "input" && this.value !== ""));
   }
+
+  componentDidLoad() {
+    this.debounceChanged();
+  }
  
   render() {
     return (
@@ -178,6 +188,7 @@ export class PacSearchbar {
         <pac-button id="cancelBtn"
                     color={this.cancelButtonColor}
                     size="small"
+                    look="clear"
                     class={(this.shouldShowCancelButton() ? " show" : "")}
                     //onClick={this.onCancelPress}
                     onMouseDown={this.onCancelPress}

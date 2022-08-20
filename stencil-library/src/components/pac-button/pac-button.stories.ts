@@ -17,7 +17,7 @@ export default {
         },
         look: {
             control: "radio",
-            options: ["solid", "glass"]
+            options: ["solid", "glass", "clear"]
         },
         size: {
             control: "radio",
@@ -36,6 +36,25 @@ Solid.args = {
     text: "Button text",
     color: "blue",
     look: "solid",
+    size: "normal",
+    enabled: true
+};
+
+export const Glass = Template.bind({});
+Glass.args = {
+    text: "Button text",
+    color: "blue",
+    look: "glass",
+    size: "normal",
+    enabled: true
+};
+
+
+export const Clear = Template.bind({});
+Clear.args = {
+    text: "Button text",
+    color: "blue",
+    look: "clear",
     size: "normal",
     enabled: true
 };

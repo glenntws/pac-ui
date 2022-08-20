@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  position: relative;
+  height: fit-content;
+  margin: 0.125rem 0.25rem;
+  border-bottom: 1px solid rgb(var(--color-gray-600), 0.3);
+  box-sizing: border-box;
+  padding: 0.375rem 0.25rem;
+  flex-direction:  row;
+  align-items: center;
+  justify-content: left;
+}
+
+::slotted(*) {
+  //width: 100%;
+  display: block;
+}

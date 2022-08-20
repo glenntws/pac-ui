@@ -2,10 +2,11 @@
 
 :host {
   display: block;
-  width: 1.75rem;
+  width: 1rem;
   align-self: center;
   margin: 0.25rem;
   box-sizing: border-box;
+  pointer-events: none;
 }
 
 div {
@@ -30,8 +31,8 @@ div::after {
   left: 0px;
   right: 0px;
   bottom: 0px;
-  background-image: linear-gradient(to top, rgb(var(--color-500)), rgb(var(--color-300)));
-  box-shadow: 0px 1px 10px -1px rgb(var(--color-400), 0.8);
+  background-image: linear-gradient(to top, rgb(var(--color-300)), rgb(var(--color-50)));
+  box-shadow: 0 0.05rem 0.375rem -0.05rem rgb(var(--color-400), 0.8), inset 0px 0px 0.5rem 0.2rem rgb(var(--color-400));
   opacity: 0;
 }
 
@@ -44,7 +45,6 @@ div.mode-blinking::after {
   animation-duration: 800ms;
   animation-iteration-count: infinite;
   animation-play-state: running;
-  transtion: all 1s ease-in-out;
 }
 
 
