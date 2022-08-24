@@ -28,8 +28,12 @@ export namespace Components {
           "blue" | "indigo" | "violet" |
           "purple" | "fuchsia" | "pink" | "rose";
         "enabled": boolean;
-        "look": "solid" | "glass" | "clear";
+        "look": "solid" | "inset" | "clear";
         "size": "small" | "normal" | "large";
+    }
+    interface PacContainer {
+        "color": Color;
+        "look": "solid" | "inset";
     }
     interface PacInput {
         "autocompleteMode": AutocompleteMode;
@@ -43,6 +47,7 @@ export namespace Components {
         "value": string;
     }
     interface PacLabel {
+        "position": "fixed" | "stacked";
     }
     interface PacList {
     }
@@ -53,6 +58,14 @@ export namespace Components {
     interface PacOption {
         "color": Color;
         "enabled": boolean;
+        "look": "box" | "inset";
+    }
+    interface PacProgressBar {
+        "busy": boolean;
+        "color": Color;
+        "indeterminate": boolean;
+        "look": "solid" | "compact";
+        "value": number;
     }
     interface PacSearchbar {
         "autocompleteMode": AutocompleteMode;
@@ -78,6 +91,8 @@ export namespace Components {
         "color": Color;
         "deletable": boolean;
     }
+    interface PacToast {
+    }
     interface PacToggle {
         "color": Color;
         "enabled": boolean;
@@ -95,6 +110,12 @@ declare global {
     var HTMLPacButtonElement: {
         prototype: HTMLPacButtonElement;
         new (): HTMLPacButtonElement;
+    };
+    interface HTMLPacContainerElement extends Components.PacContainer, HTMLStencilElement {
+    }
+    var HTMLPacContainerElement: {
+        prototype: HTMLPacContainerElement;
+        new (): HTMLPacContainerElement;
     };
     interface HTMLPacInputElement extends Components.PacInput, HTMLStencilElement {
     }
@@ -132,6 +153,12 @@ declare global {
         prototype: HTMLPacOptionElement;
         new (): HTMLPacOptionElement;
     };
+    interface HTMLPacProgressBarElement extends Components.PacProgressBar, HTMLStencilElement {
+    }
+    var HTMLPacProgressBarElement: {
+        prototype: HTMLPacProgressBarElement;
+        new (): HTMLPacProgressBarElement;
+    };
     interface HTMLPacSearchbarElement extends Components.PacSearchbar, HTMLStencilElement {
     }
     var HTMLPacSearchbarElement: {
@@ -150,6 +177,12 @@ declare global {
         prototype: HTMLPacTagElement;
         new (): HTMLPacTagElement;
     };
+    interface HTMLPacToastElement extends Components.PacToast, HTMLStencilElement {
+    }
+    var HTMLPacToastElement: {
+        prototype: HTMLPacToastElement;
+        new (): HTMLPacToastElement;
+    };
     interface HTMLPacToggleElement extends Components.PacToggle, HTMLStencilElement {
     }
     var HTMLPacToggleElement: {
@@ -159,15 +192,18 @@ declare global {
     interface HTMLElementTagNameMap {
         "pac-badge": HTMLPacBadgeElement;
         "pac-button": HTMLPacButtonElement;
+        "pac-container": HTMLPacContainerElement;
         "pac-input": HTMLPacInputElement;
         "pac-label": HTMLPacLabelElement;
         "pac-list": HTMLPacListElement;
         "pac-list-header": HTMLPacListHeaderElement;
         "pac-list-item": HTMLPacListItemElement;
         "pac-option": HTMLPacOptionElement;
+        "pac-progress-bar": HTMLPacProgressBarElement;
         "pac-searchbar": HTMLPacSearchbarElement;
         "pac-status": HTMLPacStatusElement;
         "pac-tag": HTMLPacTagElement;
+        "pac-toast": HTMLPacToastElement;
         "pac-toggle": HTMLPacToggleElement;
     }
 }
@@ -192,8 +228,12 @@ declare namespace LocalJSX {
           "blue" | "indigo" | "violet" |
           "purple" | "fuchsia" | "pink" | "rose";
         "enabled"?: boolean;
-        "look"?: "solid" | "glass" | "clear";
+        "look"?: "solid" | "inset" | "clear";
         "size"?: "small" | "normal" | "large";
+    }
+    interface PacContainer {
+        "color"?: Color;
+        "look"?: "solid" | "inset";
     }
     interface PacInput {
         "autocompleteMode"?: AutocompleteMode;
@@ -213,6 +253,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface PacLabel {
+        "position"?: "fixed" | "stacked";
     }
     interface PacList {
     }
@@ -223,7 +264,15 @@ declare namespace LocalJSX {
     interface PacOption {
         "color"?: Color;
         "enabled"?: boolean;
+        "look"?: "box" | "inset";
         "onPacToggle"?: (event: CustomEvent<boolean>) => void;
+    }
+    interface PacProgressBar {
+        "busy"?: boolean;
+        "color"?: Color;
+        "indeterminate"?: boolean;
+        "look"?: "solid" | "compact";
+        "value"?: number;
     }
     interface PacSearchbar {
         "autocompleteMode"?: AutocompleteMode;
@@ -256,6 +305,8 @@ declare namespace LocalJSX {
         "deletable"?: boolean;
         "onPacRemove"?: (event: CustomEvent<void>) => void;
     }
+    interface PacToast {
+    }
     interface PacToggle {
         "color"?: Color;
         "enabled"?: boolean;
@@ -264,15 +315,18 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "pac-badge": PacBadge;
         "pac-button": PacButton;
+        "pac-container": PacContainer;
         "pac-input": PacInput;
         "pac-label": PacLabel;
         "pac-list": PacList;
         "pac-list-header": PacListHeader;
         "pac-list-item": PacListItem;
         "pac-option": PacOption;
+        "pac-progress-bar": PacProgressBar;
         "pac-searchbar": PacSearchbar;
         "pac-status": PacStatus;
         "pac-tag": PacTag;
+        "pac-toast": PacToast;
         "pac-toggle": PacToggle;
     }
 }
@@ -282,15 +336,18 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "pac-badge": LocalJSX.PacBadge & JSXBase.HTMLAttributes<HTMLPacBadgeElement>;
             "pac-button": LocalJSX.PacButton & JSXBase.HTMLAttributes<HTMLPacButtonElement>;
+            "pac-container": LocalJSX.PacContainer & JSXBase.HTMLAttributes<HTMLPacContainerElement>;
             "pac-input": LocalJSX.PacInput & JSXBase.HTMLAttributes<HTMLPacInputElement>;
             "pac-label": LocalJSX.PacLabel & JSXBase.HTMLAttributes<HTMLPacLabelElement>;
             "pac-list": LocalJSX.PacList & JSXBase.HTMLAttributes<HTMLPacListElement>;
             "pac-list-header": LocalJSX.PacListHeader & JSXBase.HTMLAttributes<HTMLPacListHeaderElement>;
             "pac-list-item": LocalJSX.PacListItem & JSXBase.HTMLAttributes<HTMLPacListItemElement>;
             "pac-option": LocalJSX.PacOption & JSXBase.HTMLAttributes<HTMLPacOptionElement>;
+            "pac-progress-bar": LocalJSX.PacProgressBar & JSXBase.HTMLAttributes<HTMLPacProgressBarElement>;
             "pac-searchbar": LocalJSX.PacSearchbar & JSXBase.HTMLAttributes<HTMLPacSearchbarElement>;
             "pac-status": LocalJSX.PacStatus & JSXBase.HTMLAttributes<HTMLPacStatusElement>;
             "pac-tag": LocalJSX.PacTag & JSXBase.HTMLAttributes<HTMLPacTagElement>;
+            "pac-toast": LocalJSX.PacToast & JSXBase.HTMLAttributes<HTMLPacToastElement>;
             "pac-toggle": LocalJSX.PacToggle & JSXBase.HTMLAttributes<HTMLPacToggleElement>;
         }
     }

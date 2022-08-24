@@ -7,7 +7,8 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    "@storybook/addon-events"
+    "@storybook/addon-events",
+    'storybook-dark-mode'
   ],
   staticDirs: ['../www/build'],
   "framework": "@storybook/html"

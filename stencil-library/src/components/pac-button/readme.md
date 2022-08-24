@@ -11,7 +11,7 @@
 | --------- | --------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | `color`   | `color`   |             | `"blue" \| "cyan" \| "emerald" \| "fuchsia" \| "gray" \| "green" \| "indigo" \| "neutral" \| "orange" \| "pink" \| "purple" \| "red" \| "rose" \| "sky" \| "slate" \| "teal" \| "violet" \| "yellow"` | `"blue"`   |
 | `enabled` | `enabled` |             | `boolean`                                                                                                                                                                                             | `true`     |
-| `look`    | `look`    |             | `"clear" \| "glass" \| "solid"`                                                                                                                                                                       | `"solid"`  |
+| `look`    | `look`    |             | `"clear" \| "inset" \| "solid"`                                                                                                                                                                       | `"solid"`  |
 | `size`    | `size`    |             | `"large" \| "normal" \| "small"`                                                                                                                                                                      | `"normal"` |
 
 

@@ -17,7 +17,7 @@ export default {
         },
         look: {
             control: "radio",
-            options: ["solid", "glass", "clear"]
+            options: ["solid", "inset", "clear"]
         },
         size: {
             control: "radio",
@@ -40,11 +40,11 @@ Solid.args = {
     enabled: true
 };
 
-export const Glass = Template.bind({});
-Glass.args = {
+export const Inset = Template.bind({});
+Inset.args = {
     text: "Button text",
     color: "blue",
-    look: "glass",
+    look: "inset",
     size: "normal",
     enabled: true
 };

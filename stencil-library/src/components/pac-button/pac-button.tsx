@@ -17,7 +17,7 @@ export class PacButton {
           "purple" | "fuchsia" | "pink" | "rose" = "blue";
 
   @Prop()
-  look: "solid" | "glass" | "clear" = "solid";
+  look: "solid" | "inset" | "clear" = "solid";
 
   @Prop()
   size: "small" | "normal" | "large" = "normal";

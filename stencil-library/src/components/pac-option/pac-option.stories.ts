@@ -12,6 +12,10 @@ export default {
                         "blue" , "indigo" , "violet" ,
                         "purple" , "fuchsia" , "pink" , "rose"]
         },
+        look: {
+            control: "select",
+            options: ["box", "inset"]
+        },
         enabled: {
             control: "boolean"
         },
@@ -21,11 +25,20 @@ export default {
     }
 };
 
-const Template = (args) => `<pac-option color="${args.color}" enabled="${args.enabled}">${args.value}</pac-option>`;
+const Template = (args) => `<pac-option color="${args.color}" enabled="${args.enabled}" look="${args.look}">${args.value}</pac-option>`;
 
-export const Solid = Template.bind({});
-Solid.args = {
+export const Box = Template.bind({});
+Box.args = {
     color: "blue",
+    look: "box",
     enabled: true,
     value: "B"
+};
+
+export const Inset = Template.bind({});
+Inset.args = {
+    color: "orange",
+    look: "inset",
+    enabled: true,
+    value: "<ion-icon name='airplane'></ion-icon>"
 };

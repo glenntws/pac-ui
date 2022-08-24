@@ -10,7 +10,9 @@ export class PacListItem {
   render() {
     return (
       <Host>
+        <slot name="start"></slot>
         <slot></slot>
+        <slot name="end"></slot>
       </Host>
     );
   }

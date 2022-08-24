@@ -20,6 +20,12 @@
   box-shadow: 0 1px 3px 0 rgb(var(--color-black),0.1), 0 1px 2px -1px rgb(var(--color-black),0.1);
 }
 
+@media (prefers-color-scheme: dark) {
+  :host {
+    background-color: rgb(var(--color-900));
+  }
+}
+
 :host(.effect-slow-glow) {
   animation-name: glow;
   animation-duration: 6s;

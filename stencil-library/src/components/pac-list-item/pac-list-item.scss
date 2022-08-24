@@ -9,9 +9,11 @@
   flex-direction:  row;
   align-items: center;
   justify-content: left;
+  flex-wrap: wrap;
 }
 
 ::slotted(*) {
   //width: 100%;
   display: block;
+  flex-grow: 0;
 }

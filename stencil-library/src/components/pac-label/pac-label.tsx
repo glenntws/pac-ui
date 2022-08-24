@@ -1,15 +1,18 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'pac-label',
-  styleUrl: 'pac-label.css',
+  styleUrl: 'pac-label.scss',
   shadow: true,
 })
 export class PacLabel {
 
+  @Prop()
+  position: "fixed" | "stacked" = "fixed";
+
   render() {
     return (
-      <Host>
+      <Host class={"position-" + this.position}>
         <slot></slot>
       </Host>
     );

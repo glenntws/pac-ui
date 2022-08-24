@@ -10,6 +10,9 @@ export class PacOption {
   @Prop()
   color: Color = "blue";
 
+  @Prop()
+  look: "box" | "inset" = "box";
+
   @Prop({mutable: true})
   enabled: boolean = false;
 
@@ -19,7 +22,8 @@ export class PacOption {
 
   render() {
     return (
-      <Host class={"color-" + this.color + (this.enabled ? " enabled" : "")} onClick={() => {this.enabled = !this.enabled; this.pacToggle.emit(this.enabled);}}>
+      <Host class={"color-" + this.color + (this.enabled ? " enabled" : "") + (" look-" + this.look)}
+            onClick={() => {this.enabled = !this.enabled; this.pacToggle.emit(this.enabled);}}>
         <slot></slot>
       </Host>
     );

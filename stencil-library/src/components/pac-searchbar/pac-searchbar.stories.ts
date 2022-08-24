@@ -91,8 +91,8 @@ const Template = (args) => `<pac-searchbar
                                 pac-input="() => {alert('Hello');}">
                             </pac-searchbar>`;
 
-export const Solid = Template.bind({});
-Solid.args = {
+export const Inset = Template.bind({});
+Inset.args = {
     searchIconColor:"blue",
     cancelButtonColor:"rose",
     cancelButtonText:"Cancel",
